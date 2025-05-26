@@ -2,6 +2,14 @@
 
 configs I use on macOS
 
+## Requirements
+- [Neovim](https://neovim.io/)
+- [Ghostty](https://ghostty.org/)
+- [AeroSpace](https://nikitabobko.github.io/AeroSpace/guide)
+- [Oh My Zsh](https://ohmyz.sh/#install)
+- [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- [Zoxide](https://github.com/ajeetdsouza/zoxide)
+
 ## Installation
 
 1. Clone:
