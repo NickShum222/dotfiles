@@ -65,6 +65,7 @@ source $ZSH/oh-my-zsh.sh
 # Git Shortcuts
 alias gc="git commit -m"
 alias gca="git commit -a -m"
+alias gcam='git add . && git commit -m'
 alias gp="git push origin HEAD"
 alias gpu="git pull origin"
 alias gst="git status"
