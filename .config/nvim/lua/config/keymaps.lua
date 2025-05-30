@@ -4,6 +4,9 @@ local keymap = vim.keymap
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
+keymap.set("n", "H", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
+keymap.set("n", "L", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
+keymap.set("n", "W", ":bdelete<CR>", { noremap = true, silent = true })
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
