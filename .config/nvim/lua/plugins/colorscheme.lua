@@ -1,4 +1,3 @@
--- ~/.config/nvim/lua/plugins/colorscheme.lua
 return {
   {
     "rebelot/kanagawa.nvim",
