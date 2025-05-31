@@ -9,6 +9,7 @@ configs I use on macOS
 - [Oh My Zsh](https://ohmyz.sh/#install)
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
 - [Zoxide](https://github.com/ajeetdsouza/zoxide)
+- [Ripgrep](https://github.com/BurntSushi/ripgrep)
 
 ## Installation
 
