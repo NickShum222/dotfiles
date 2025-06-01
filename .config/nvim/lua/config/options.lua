@@ -30,3 +30,6 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 opt.confirm = true
+
+opt.undofile = true
+opt.undodir = vim.fn.stdpath("state") .. "/undo"
