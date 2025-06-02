@@ -29,6 +29,5 @@ require("lazy").setup({
 		{ import = "plugins.lsp" },
 	},
 	-- automatically check for plugin updates
-	install = { colorscheme = { "kanagawa", "" } },
 	change_detection = { notify = false },
 })
