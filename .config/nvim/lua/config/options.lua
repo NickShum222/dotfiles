@@ -7,6 +7,8 @@ opt.number = true
 opt.numberwidth = 2
 opt.signcolumn = "auto"
 
+opt.cursorline = true
+
 opt.cmdheight = 2
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
