@@ -98,16 +98,16 @@ alt-7 = 'workspace 7'
 alt-q = 'workspace Q'
 alt-w = 'workspace W'
 alt-e = 'workspace E'
-alt-shift-1 = 'move-node-to-workspace 1'
-alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-4 = 'move-node-to-workspace 4'
-alt-shift-5 = 'move-node-to-workspace 5'
-alt-shift-6 = 'move-node-to-workspace 6'
-alt-shift-7 = 'move-node-to-workspace 7'
-alt-shift-q = 'move-node-to-workspace Q'
-alt-shift-w = 'move-node-to-workspace W'
-alt-shift-e = 'move-node-to-workspace E'
+alt-shift-1 = [ 'move-node-to-workspace 1', 'workspace 1' ]
+alt-shift-2 = [ 'move-node-to-workspace 2', 'workspace 2' ]
+alt-shift-3 = [ 'move-node-to-workspace 3', 'workspace 3' ]
+alt-shift-4 = [ 'move-node-to-workspace 4', 'workspace 4' ]
+alt-shift-5 = [ 'move-node-to-workspace 5', 'workspace 5' ]
+alt-shift-6 = [ 'move-node-to-workspace 6', 'workspace 6' ]
+alt-shift-7 = [ 'move-node-to-workspace 7', 'workspace 7' ]
+alt-shift-q = [ 'move-node-to-workspace Q', 'workspace Q' ]
+alt-shift-w = [ 'move-node-to-workspace W', 'workspace W' ]
+alt-shift-e = [ 'move-node-to-workspace E', 'workspace E' ]
 [workspace-to-monitor-force-assignment]
 1 = 'main'
 2 = 'main'
@@ -147,16 +147,16 @@ if.app-id = 'company.thebrowser.Browser'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
 if.app-id = 'com.apple.finder'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
