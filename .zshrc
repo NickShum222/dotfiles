@@ -63,9 +63,9 @@ plugins=(git virtualenv)
 source $ZSH/oh-my-zsh.sh
 
 # Git Shortcuts
-alias gaa = "git add ."
-alias gca="git commit -a -m"
-alias gp="git push "
+alias gaa='git add .'
+alias gca='git commit -a -m'
+alias gp='git push '
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
