@@ -108,6 +108,7 @@ alt-shift-7 = [ 'move-node-to-workspace 7', 'workspace 7' ]
 alt-shift-q = [ 'move-node-to-workspace Q', 'workspace Q' ]
 alt-shift-w = [ 'move-node-to-workspace W', 'workspace W' ]
 alt-shift-e = [ 'move-node-to-workspace E', 'workspace E' ]
+
 [workspace-to-monitor-force-assignment]
 1 = 'main'
 2 = 'main'
@@ -144,15 +145,15 @@ alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
-run = 'move-node-to-workspace 1'
+run = 'move-node-to-workspace Q'
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace W'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-run = 'move-node-to-workspace 3'
+run = 'move-node-to-workspace E'
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
