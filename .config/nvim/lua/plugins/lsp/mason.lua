@@ -25,7 +25,7 @@ return {
 				["emmet_ls"] = function()
 					-- configure emmet language server
 					require("lspconfig")["emmet_ls"].setup({
-						capabilities = require("cmp_nvim_lsp").default_capabilities,
+						capabilities = require("cmp_nvim_lsp").default_capabilities(),
 						filetypes = {
 							"html",
 							"typescriptreact",
@@ -41,7 +41,7 @@ return {
 				["lua_ls"] = function()
 					-- configure lua server (with special settings)
 					require("lspconfig")["lua_ls"].setup({
-						capabilities = require("cmp_nvim_lsp").default_capabilities,
+						capabilities = require("cmp_nvim_lsp").default_capabilities(),
 						settings = {
 							Lua = {
 								-- make the language server recognize "vim" global
