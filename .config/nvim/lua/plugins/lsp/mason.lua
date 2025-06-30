@@ -22,6 +22,22 @@ return {
 						capabilities = require("cmp_nvim_lsp").default_capabilities(),
 					})
 				end,
+				["emmet_ls"] = function()
+					-- configure emmet language server
+					require("lspconfig")["emmet_ls"].setup({
+						capabilities = require("cmp_nvim_lsp").default_capabilities,
+						filetypes = {
+							"html",
+							"typescriptreact",
+							"javascriptreact",
+							"css",
+							"sass",
+							"scss",
+							"less",
+							"svelte",
+						},
+					})
+				end,
 				["lua_ls"] = function()
 					-- configure lua server (with special settings)
 					require("lspconfig")["lua_ls"].setup({
