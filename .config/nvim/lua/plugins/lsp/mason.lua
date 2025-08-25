@@ -15,6 +15,7 @@ return {
 				"tailwindcss",
 				"lua_ls",
 				"clangd",
+				"pyright",
 			},
 			handlers = {
 				function(server_name)

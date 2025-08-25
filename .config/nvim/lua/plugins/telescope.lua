@@ -23,12 +23,20 @@ return {
 
 		telescope.setup({
 			defaults = {
-				-- borderchars = {
-				-- 	prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
-				-- 	results = { " " },
-				-- 	preview = { " " },
-				-- },
+				previewer = true,
+				file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+				grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+				qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 				path_display = { "smart" },
+
+				preview_cutoff = 1,
+				layout_strategy = "horizontal",
+				layout_config = {
+					width = 0.95,
+					height = 0.90,
+					horizontal = { preview_width = 0.50, preview_cutoff = 0 },
+					vertical = { preview_height = 0.50, preview_cutoff = 0 },
+				},
 				mappings = {
 					i = {
 						["<C-h>"] = actions.move_selection_previous, -- move to prev result
@@ -44,7 +52,6 @@ return {
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
-
 		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
 		keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
