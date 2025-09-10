@@ -1,8 +1,6 @@
 theme = CutiePro
 
 font-size = 23
-
-
 maximize = true
 window-padding-x = 4
 window-padding-y = 4
@@ -11,3 +9,7 @@ confirm-close-surface = false
 shell-integration-features = no-cursor
 mouse-hide-while-typing = true
 gtk-titlebar-hide-when-maximized
+
+auto-update-channel = tip
+
+custom-shader = shaders/cursor_smear.glsl
