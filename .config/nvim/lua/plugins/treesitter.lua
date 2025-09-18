@@ -41,6 +41,7 @@ return {
 				"query",
 				"vimdoc",
 				"c",
+				"sql",
 			},
 		})
 		require("nvim-ts-autotag").setup()
