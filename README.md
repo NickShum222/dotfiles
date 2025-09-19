@@ -3,6 +3,7 @@
 configs I use on macOS
 
 ## Requirements
+
 - [Neovim](https://neovim.io/)
 - [Ghostty](https://ghostty.org/)
 - [AeroSpace](https://nikitabobko.github.io/AeroSpace/guide)
@@ -11,7 +12,7 @@ configs I use on macOS
 - [Zoxide](https://github.com/ajeetdsouza/zoxide)
 - [Ripgrep](https://github.com/BurntSushi/ripgrep)
 - [tmux](https://github.com/tmux/tmux/wiki)
-
+- [tree-sitter](https://tree-sitter.github.io/tree-sitter/)
 
 ## Installation
 
