@@ -13,6 +13,7 @@ configs I use on macOS
 - [Ripgrep](https://github.com/BurntSushi/ripgrep)
 - [tmux](https://github.com/tmux/tmux/wiki)
 - [tree-sitter](https://tree-sitter.github.io/tree-sitter/)
+- [imagemagick](https://imagemagick.org/)
 
 ## Installation
 

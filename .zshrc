@@ -85,3 +85,4 @@ scp-356() {
   scp -P 2224 "n4shum@ece-nebula16.eng.uwaterloo.ca:~/$1" \
       ~/Developer/School/3B/356-ECE/output/
 }
+
