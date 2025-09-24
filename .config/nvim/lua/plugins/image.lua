@@ -14,7 +14,7 @@ return {
 			require("image").setup({
 				tmux_show_only_in_active_window = true,
 				max_height_window_percentage = 50,
-				hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.svg" },
+				hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp" },
 			})
 		end,
 	},

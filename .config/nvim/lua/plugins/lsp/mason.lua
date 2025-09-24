@@ -49,9 +49,14 @@ return {
 								diagnostics = {
 									globals = { "vim" },
 								},
+								workspace = {
+									library = vim.api.nvim_get_runtime_file("", true), -- include Neovim runtime
+									checkThirdParty = false, -- stop annoying prompts
+								},
 								completion = {
 									callSnippet = "Replace",
 								},
+								telemetry = { enable = false },
 							},
 						},
 					})

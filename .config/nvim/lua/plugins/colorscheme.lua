@@ -1,13 +1,25 @@
 return {
 	{
-		"luisiacc/gruvbox-baby",
+		"srcery-colors/srcery-vim",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.g.gruvbox_baby_telescope_theme = 1
-			vim.cmd.colorscheme("gruvbox-baby")
+			vim.g.srcery_italic = 1
+			vim.g.srcery_bold = 1
+			vim.g.srcery_inverse = 0
+			vim.g.srcery_undercurl = 0
+			vim.cmd.colorscheme("srcery")
 		end,
 	},
+	-- {
+	-- 	"luisiacc/gruvbox-baby",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.g.gruvbox_baby_telescope_theme = 1
+	-- 		vim.cmd.colorscheme("gruvbox-baby")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"sainnhe/sonokai",
 	-- 	lazy = false,
