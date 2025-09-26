@@ -115,3 +115,8 @@ scp-356() {
       ~/Developer/School/3B/356-ECE/output/
 }
 
+function chpwd() {
+  if [[ -d "./venv" && -f "./venv/bin/activate" ]]; then
+    source ./venv/bin/activate
+  fi
+}
