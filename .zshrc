@@ -22,11 +22,40 @@ export _ZO_ECHO=1
 export _ZO_RESOLVE_SYMLINKS=0
 # alias cdz='z'
 
+export EDITOR="nvim"
+
+HISTSIZE=1000000
+SAVEHIST=1000000
+HISTFILE=~/.zsh_history
+setopt inc_append_history       # append to history, don’t overwrite
+setopt hist_ignore_space        # ignore commands starting with space
+setopt hist_reduce_blanks       # remove superfluous blanks
+setopt hist_find_no_dups        # skip duplicates in history search
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+alias reload="source ~/.zshrc"
+alias ls="ls -lh --color=auto"
+
 export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 export PATH=$JAVA_HOME/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 alias run='run_java_test'
 

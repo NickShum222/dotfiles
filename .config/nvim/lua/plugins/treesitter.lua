@@ -37,8 +37,10 @@ return {
 				"query",
 				"vimdoc",
 				"c",
+				"cpp",
 				"sql",
 				"latex",
+				"python",
 			},
 		})
 		require("nvim-ts-autotag").setup()

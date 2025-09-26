@@ -14,6 +14,9 @@ configs I use on macOS
 - [tmux](https://github.com/tmux/tmux/wiki)
 - [tree-sitter](https://tree-sitter.github.io/tree-sitter/)
 - [imagemagick](https://imagemagick.org/)
+- [zsh-autocomplete](https://formulae.brew.sh/formula/zsh-autocomplete)
+- [zsh-syntax-highlighting](https://formulae.brew.sh/formula/zsh-syntax-highlighting)
+- [zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode)
 
 ## Installation
 
