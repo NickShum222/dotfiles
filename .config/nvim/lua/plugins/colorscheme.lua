@@ -9,6 +9,17 @@ return {
 			vim.g.srcery_inverse = 0
 			vim.g.srcery_undercurl = 0
 			vim.cmd.colorscheme("srcery")
+
+			vim.cmd([[
+			highlight Normal guibg=#000000 ctermbg=0
+			highlight NormalNC guibg=#000000 ctermbg=0
+			highlight SignColumn guibg=#000000 ctermbg=0
+			highlight LineNr guibg=#000000 ctermbg=0
+			highlight FoldColumn guibg=#000000 ctermbg=0
+			highlight VertSplit guibg=#000000 ctermbg=0
+			highlight StatusLine guibg=#000000 ctermbg=0
+			highlight EndOfBuffer guibg=#000000 ctermbg=0
+		]])
 		end,
 	},
 	-- {
