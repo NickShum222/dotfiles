@@ -98,6 +98,9 @@ alt-7 = 'workspace 7'
 alt-q = 'workspace Q'
 alt-w = 'workspace W'
 alt-e = 'workspace E'
+alt-u = 'workspace U'
+alt-i = 'workspace I'
+alt-o = 'workspace O'
 alt-shift-1 = [ 'move-node-to-workspace 1', 'workspace 1' ]
 alt-shift-2 = [ 'move-node-to-workspace 2', 'workspace 2' ]
 alt-shift-3 = [ 'move-node-to-workspace 3', 'workspace 3' ]
@@ -108,6 +111,9 @@ alt-shift-7 = [ 'move-node-to-workspace 7', 'workspace 7' ]
 alt-shift-q = [ 'move-node-to-workspace Q', 'workspace Q' ]
 alt-shift-w = [ 'move-node-to-workspace W', 'workspace W' ]
 alt-shift-e = [ 'move-node-to-workspace E', 'workspace E' ]
+alt-shift-u = [ 'move-node-to-workspace U', 'workspace U' ]
+alt-shift-i = [ 'move-node-to-workspace I', 'workspace I' ]
+alt-shift-o = [ 'move-node-to-workspace O', 'workspace O' ]
 
 [workspace-to-monitor-force-assignment]
 1 = 'main'
@@ -120,6 +126,9 @@ alt-shift-e = [ 'move-node-to-workspace E', 'workspace E' ]
 Q = ['secondary', 'main']
 W = ['secondary', 'main']
 E = ['secondary', 'main']
+U = ['secondary', 'main']
+I = ['secondary', 'main']
+O = ['secondary', 'main']
 alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
@@ -157,7 +166,7 @@ run = 'move-node-to-workspace E'
 
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
-run = 'move-node-to-workspace W'
+run = 'move-node-to-workspace U'
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
@@ -165,4 +174,4 @@ run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
-run = 'move-node-to-workspace 5'
+run = 'move-node-to-workspace I'
