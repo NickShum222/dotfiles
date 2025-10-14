@@ -17,6 +17,7 @@ configs I use on macOS
 - [zsh-autocomplete](https://formulae.brew.sh/formula/zsh-autocomplete)
 - [zsh-syntax-highlighting](https://formulae.brew.sh/formula/zsh-syntax-highlighting)
 - [zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode)
+- [karabiner](https://karabiner-elements.pqrs.org/)
 
 ## Installation
 

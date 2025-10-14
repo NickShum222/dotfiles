@@ -156,6 +156,10 @@ if.app-id = 'com.apple.finder'
 run = 'move-node-to-workspace E'
 
 [[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = 'move-node-to-workspace W'
+
+[[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = 'move-node-to-workspace 4'
 

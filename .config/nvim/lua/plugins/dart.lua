@@ -2,7 +2,7 @@ return {
 	"iofq/dart.nvim",
 	opts = {
 		marklist = { "a", "s", "d" },
-		buflist = { "l", "k", "j" },
+		buflist = { "h", "j", "k", "l" },
 		mappings = {
 			mark = ";;", -- Mark current buffer
 			jump = ";", -- Jump to buffer marked by next character i.e `;a`
@@ -13,6 +13,7 @@ return {
 		},
 		tabline = {
 			always_show = false,
+			icons = false,
 		},
 	},
 	config = function(_, opts)

@@ -55,7 +55,7 @@ export NVM_DIR="$HOME/.nvm"
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 alias run='run_java_test'
 
@@ -114,6 +114,8 @@ scp-356() {
   scp -P 2224 "n4shum@ece-nebula16.eng.uwaterloo.ca:~/$1" \
       ~/Developer/School/3B/356-ECE/output/
 }
+
+# Auto enable venv
 
 function chpwd() {
   if [[ -d "./venv" && -f "./venv/bin/activate" ]]; then
