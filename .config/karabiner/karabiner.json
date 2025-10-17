@@ -15,6 +15,31 @@
         },
         "rules": [
           {
+            "description": "Disable Enter key and map right_command to Enter",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "return_or_enter",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": []
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_command",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": [
+                  {
+                    "key_code": "return_or_enter"
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "description": "Disable Arrow Keys",
             "manipulators": [
               {
@@ -24,7 +49,10 @@
                     "type": "frontmost_application_unless"
                   }
                 ],
-                "from": { "key_code": "left_arrow" },
+                "from": {
+                  "key_code": "left_arrow",
+                  "modifiers": { "optional": ["any"] }
+                },
                 "to": [],
                 "type": "basic"
               },
@@ -35,7 +63,10 @@
                     "type": "frontmost_application_unless"
                   }
                 ],
-                "from": { "key_code": "right_arrow" },
+                "from": {
+                  "key_code": "right_arrow",
+                  "modifiers": { "optional": ["any"] }
+                },
                 "to": [],
                 "type": "basic"
               },
@@ -46,7 +77,10 @@
                     "type": "frontmost_application_unless"
                   }
                 ],
-                "from": { "key_code": "up_arrow" },
+                "from": {
+                  "key_code": "up_arrow",
+                  "modifiers": { "optional": ["any"] }
+                },
                 "to": [],
                 "type": "basic"
               },
@@ -57,7 +91,10 @@
                     "type": "frontmost_application_unless"
                   }
                 ],
-                "from": { "key_code": "down_arrow" },
+                "from": {
+                  "key_code": "down_arrow",
+                  "modifiers": { "optional": ["any"] }
+                },
                 "to": [],
                 "type": "basic"
               }
@@ -67,7 +104,10 @@
             "description": "Disable Escape button",
             "manipulators": [
               {
-                "from": { "key_code": "escape" },
+                "from": {
+                  "key_code": "escape",
+                  "modifiers": { "optional": ["any"] }
+                },
                 "to": [],
                 "type": "basic"
               }
@@ -77,10 +117,110 @@
             "description": "Caps Lock → Left Control",
             "manipulators": [
               {
-                "from": { "key_code": "caps_lock" },
+                "from": {
+                  "key_code": "caps_lock",
+                  "modifiers": { "optional": ["any"] }
+                },
                 "to": [{ "key_code": "left_control" }],
                 "to_if_alone": [{ "key_code": "escape" }],
                 "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Hold Right Shift + HJKL for Scroll",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["right_shift"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "mouse_key": {
+                      "horizontal_wheel": -32
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": ["right_shift"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "mouse_key": {
+                      "horizontal_wheel": 32
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": ["right_shift"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "mouse_key": {
+                      "vertical_wheel": -32
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": ["right_shift"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "mouse_key": {
+                      "vertical_wheel": 32
+                    }
+                  }
+                ]
               }
             ]
           },
@@ -96,7 +236,10 @@
                 ],
                 "from": {
                   "key_code": "h",
-                  "modifiers": { "mandatory": ["control"], "optional": ["any"] }
+                  "modifiers": {
+                    "mandatory": ["left_control"],
+                    "optional": ["any"]
+                  }
                 },
                 "to": [{ "key_code": "left_arrow" }],
                 "type": "basic"
@@ -113,7 +256,10 @@
                 ],
                 "from": {
                   "key_code": "j",
-                  "modifiers": { "mandatory": ["control"], "optional": ["any"] }
+                  "modifiers": {
+                    "mandatory": ["left_control"],
+                    "optional": ["any"]
+                  }
                 },
                 "to": [{ "key_code": "down_arrow" }],
                 "type": "basic"
@@ -130,7 +276,10 @@
                 ],
                 "from": {
                   "key_code": "k",
-                  "modifiers": { "mandatory": ["control"], "optional": ["any"] }
+                  "modifiers": {
+                    "mandatory": ["left_control"],
+                    "optional": ["any"]
+                  }
                 },
                 "to": [{ "key_code": "up_arrow" }],
                 "type": "basic"
@@ -147,7 +296,10 @@
                 ],
                 "from": {
                   "key_code": "l",
-                  "modifiers": { "mandatory": ["control"], "optional": ["any"] }
+                  "modifiers": {
+                    "mandatory": ["left_control"],
+                    "optional": ["any"]
+                  }
                 },
                 "to": [{ "key_code": "right_arrow" }],
                 "type": "basic"
