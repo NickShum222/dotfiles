@@ -1,3 +1,4 @@
+-- GCC TO COMMENT
 return {
 	"numToStr/Comment.nvim",
 	event = { "BufReadPre", "BufNewFile" },

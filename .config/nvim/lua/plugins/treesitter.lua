@@ -1,3 +1,4 @@
+-- SYNTAX HIGHLIGHTING/PARSER
 return {
 	"nvim-treesitter/nvim-treesitter",
 	event = { "BufReadPre", "BufNewFile" },

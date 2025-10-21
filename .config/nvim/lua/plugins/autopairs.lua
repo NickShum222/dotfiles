@@ -1,3 +1,4 @@
+-- AUTO CLOSING BRACKETS/QUOTES
 return {
 	"windwp/nvim-autopairs",
 	event = { "InsertEnter" },

@@ -1,3 +1,4 @@
+-- BUFFERLINE SHORTCUTS
 return {
 	"iofq/dart.nvim",
 	opts = {

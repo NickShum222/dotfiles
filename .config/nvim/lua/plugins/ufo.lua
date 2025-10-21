@@ -1,3 +1,4 @@
+-- FOLDING
 return {
 	"kevinhwang91/nvim-ufo",
 	event = { "BufReadPost", "BufNewFile" },

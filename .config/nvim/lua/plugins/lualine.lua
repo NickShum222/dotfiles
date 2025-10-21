@@ -1,3 +1,4 @@
+-- STATUS LINE
 return {
 	{
 		"nvim-lualine/lualine.nvim",

@@ -1,3 +1,4 @@
+-- CODE FORMATTER ON COMPILE/SAVE
 return {
 	"stevearc/conform.nvim",
 	event = { "BufReadPre", "BufNewFile" },

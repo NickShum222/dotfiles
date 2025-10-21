@@ -1,3 +1,4 @@
+-- FILE DIRECTORY AS BUFFER
 return {
 	"stevearc/oil.nvim",
 	---@module 'oil'

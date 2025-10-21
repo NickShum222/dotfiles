@@ -1,7 +1,6 @@
+-- CURSOR STAYS CENTER RELATIVE TO SCREEN
 return {
 	"arnamak/stay-centered.nvim",
 	lazy = false,
-	opts = {
-		skip_filetypes = { "lua", "typescript" },
-	},
+	opts = {},
 }

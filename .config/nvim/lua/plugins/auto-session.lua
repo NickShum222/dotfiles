@@ -1,3 +1,4 @@
+-- RESTORES PREVIOUS SESSION
 return {
 	"rmagatti/auto-session",
 	config = function()
