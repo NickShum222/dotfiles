@@ -15,29 +15,88 @@
         },
         "rules": [
           {
-            "description": "Disable number row",
+            "description": "Disable number row (blocks 1–0 and !@#$%^&*())",
             "manipulators": [
-              { "type": "basic", "from": { "key_code": "1" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "2" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "3" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "4" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "5" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "6" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "7" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "8" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "9" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "0" }, "to": [] },
-
-              { "type": "basic", "from": { "key_code": "!" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "@" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "#" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "$" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "%" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "^" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "&" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "*" }, "to": [] },
-              { "type": "basic", "from": { "key_code": "(" }, "to": [] },
-              { "type": "basic", "from": { "key_code": ")" }, "to": [] }
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "1",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": []
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "2",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": []
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "3",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": []
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "4",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": []
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "5",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": []
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "6",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": []
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "7",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": []
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "8",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": []
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "9",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": []
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "0",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": []
+              }
             ]
           },
           {
@@ -54,6 +113,47 @@
                   { "set_variable": { "name": "num_layer", "value": 0 } }
                 ],
                 "to_if_alone": [{ "key_code": "return_or_enter" }]
+              }
+            ]
+          },
+          {
+            "description": "Right Command + M , . / → { } [ ]",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "m" },
+                "to": [
+                  { "key_code": "open_bracket", "modifiers": ["left_shift"] }
+                ],
+                "conditions": [
+                  { "type": "variable_if", "name": "num_layer", "value": 1 }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "comma" },
+                "to": [
+                  { "key_code": "close_bracket", "modifiers": ["left_shift"] }
+                ],
+                "conditions": [
+                  { "type": "variable_if", "name": "num_layer", "value": 1 }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "period" },
+                "to": [{ "key_code": "open_bracket" }],
+                "conditions": [
+                  { "type": "variable_if", "name": "num_layer", "value": 1 }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": { "key_code": "slash" },
+                "to": [{ "key_code": "close_bracket" }],
+                "conditions": [
+                  { "type": "variable_if", "name": "num_layer", "value": 1 }
+                ]
               }
             ]
           },
@@ -395,10 +495,7 @@
               {
                 "conditions": [
                   {
-                    "bundle_identifiers": [
-                      "^com\\.mitchellh\\.ghostty$",
-                      "^md\\.obsidian$"
-                    ],
+                    "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"],
                     "type": "frontmost_application_unless"
                   }
                 ],
@@ -415,10 +512,7 @@
               {
                 "conditions": [
                   {
-                    "bundle_identifiers": [
-                      "^com\\.mitchellh\\.ghostty$",
-                      "^md\\.obsidian$"
-                    ],
+                    "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"],
                     "type": "frontmost_application_unless"
                   }
                 ],
@@ -435,10 +529,7 @@
               {
                 "conditions": [
                   {
-                    "bundle_identifiers": [
-                      "^com\\.mitchellh\\.ghostty$",
-                      "^md\\.obsidian$"
-                    ],
+                    "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"],
                     "type": "frontmost_application_unless"
                   }
                 ],
