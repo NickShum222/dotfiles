@@ -1,25 +1,4 @@
 return {
-	-- {
-	-- 	"ayu-theme/ayu-vim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		vim.g.ayucolor = "dark"
-	-- 		vim.cmd.colorscheme("ayu")
-	-- 		vim.api.nvim_set_hl(0, "BufferLineFill", { bg = "#0f1419" }) -- Ayu dark background
-	-- 		vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#0f1419" })
-	-- 		vim.cmd([[
-	-- 		highlight Normal guibg=#000000 ctermbg=0
-	-- 		highlight NormalNC guibg=#000000 ctermbg=0
-	-- 		highlight SignColumn guibg=#000000 ctermbg=0
-	-- 		highlight LineNr guibg=#000000 ctermbg=0
-	-- 		highlight FoldColumn guibg=#000000 ctermbg=0
-	-- 		highlight VertSplit guibg=#000000 ctermbg=0
-	-- 		highlight StatusLine guibg=#000000 ctermbg=0
-	-- 		highlight EndOfBuffer guibg=#000000 ctermbg=0
-	-- 	]])
-	-- 	end,
-	-- },
 	{
 		"srcery-colors/srcery-vim",
 		lazy = false,
@@ -43,6 +22,49 @@ return {
 		]])
 		end,
 	},
+
+	-- {
+	-- 	"ficcdaf/ashen.nvim",
+	-- 	-- optional but recommended,
+	-- 	-- pin to the latest stable release:
+	-- 	tag = "*",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme("ashen")
+	-- 		vim.cmd([[
+	-- 		highlight Normal guibg=#000000 ctermbg=0
+	-- 		highlight NormalNC guibg=#000000 ctermbg=0
+	-- 		highlight SignColumn guibg=#000000 ctermbg=0
+	-- 		highlight LineNr guibg=#000000 ctermbg=0
+	-- 		highlight FoldColumn guibg=#000000 ctermbg=0
+	-- 		highlight VertSplit guibg=#000000 ctermbg=0
+	-- 		highlight StatusLine guibg=#000000 ctermbg=0
+	-- 		highlight EndOfBuffer guibg=#000000 ctermbg=0
+	-- 	]])
+	-- 	end,
+	-- },
+	-- {
+	-- 	"ayu-theme/ayu-vim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.g.ayucolor = "dark"
+	-- 		vim.cmd.colorscheme("ayu")
+	-- 		vim.api.nvim_set_hl(0, "BufferLineFill", { bg = "#0f1419" }) -- Ayu dark background
+	-- 		vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#0f1419" })
+	-- 		vim.cmd([[
+	-- 		highlight Normal guibg=#000000 ctermbg=0
+	-- 		highlight NormalNC guibg=#000000 ctermbg=0
+	-- 		highlight SignColumn guibg=#000000 ctermbg=0
+	-- 		highlight LineNr guibg=#000000 ctermbg=0
+	-- 		highlight FoldColumn guibg=#000000 ctermbg=0
+	-- 		highlight VertSplit guibg=#000000 ctermbg=0
+	-- 		highlight StatusLine guibg=#000000 ctermbg=0
+	-- 		highlight EndOfBuffer guibg=#000000 ctermbg=0
+	-- 	]])
+	-- 	end,
+	-- },
 	-- {
 	-- 	"luisiacc/gruvbox-baby",
 	-- 	lazy = false,
