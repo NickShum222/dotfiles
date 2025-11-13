@@ -13,4 +13,8 @@ gtk-titlebar-hide-when-maximized
 
 auto-update-channel = tip
 
+macos-titlebar-style = hidden
+
+clipboard-read=allow
+clipboard-write=allow
 custom-shader = shaders/cursor_smear.glsl

@@ -115,6 +115,8 @@ scp-356() {
       ~/Developer/School/3B/356-ECE/output/
 }
 
+alias ssh-358='ssh -p 2222 n4shum@ece-nebula16.eng.uwaterloo.ca'
+
 # Auto enable venv
 
 function chpwd() {
