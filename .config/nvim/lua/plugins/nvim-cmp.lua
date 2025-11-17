@@ -8,7 +8,6 @@ return {
 		"hrsh7th/cmp-path",
 		{
 			"L3MON4D3/LuaSnip",
-			-- follow latest release.
 			version = "v2.4", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 			build = "make install_jsregexp",
 		},
