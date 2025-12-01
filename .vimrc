@@ -2,11 +2,11 @@ set nocompatible
 filetype off
 syntax on
 
-" call plug#begin('~/.vim/plugged')
+"call plug#begin('~/.vim/plugged')
 "
-" Plug 'junegunn/fzf',
-" Plug 'srcery-colors/srcery-vim'
-" call plug#end()
+"Plug 'junegunn/fzf',
+"Plug 'srcery-colors/srcery-vim'
+"call plug#end()
 
 " General
 set number
@@ -38,7 +38,7 @@ set showcmd " show command at the bottom
 set termguicolors
 set laststatus=2 " always show status line
 
-colorscheme elflord
+" colorscheme habamax
 
 let mapleader = " "
 nnoremap - :Explore<CR>

@@ -1,7 +1,7 @@
 theme = Srcery
 background = #000000
 
-font-size = 16
+font-size = 14
 maximize = true
 window-padding-x = 4
 window-padding-y = 0
