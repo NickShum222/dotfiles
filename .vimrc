@@ -38,7 +38,7 @@ set showcmd " show command at the bottom
 set termguicolors
 set laststatus=2 " always show status line
 
-" colorscheme habamax
+colorscheme habamax
 
 let mapleader = " "
 nnoremap - :Explore<CR>
