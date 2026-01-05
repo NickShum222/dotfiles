@@ -14,6 +14,8 @@ return {
 				},
 			},
 			formatters_by_ft = {
+				cpp = { "clang-format" },
+				c = { "clang-format" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
 				javascriptreact = { "prettier" },
@@ -31,7 +33,7 @@ return {
 				java = { "google-java-format" },
 			},
 			format_on_save = {
-				lsp_fallback = true,
+				lsp_fallback = false,
 				async = false,
 				timeout_ms = 1000,
 			},

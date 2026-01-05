@@ -920,7 +920,6 @@
                 "rules": [
                     {
                         "description": "Hold Control + HJKL for Arrow keys",
-                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [

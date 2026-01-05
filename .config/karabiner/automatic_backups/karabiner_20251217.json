@@ -897,7 +897,6 @@
             },
             "devices": [
                 {
-                    "disable_built_in_keyboard_if_exists": true,
                     "identifiers": {
                         "is_keyboard": true,
                         "product_id": 24926,
@@ -907,7 +906,6 @@
                 }
             ],
             "name": "Macbook Keyboard",
-            "selected": true,
             "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
         },
         {
@@ -920,7 +918,6 @@
                 "rules": [
                     {
                         "description": "Hold Control + HJKL for Arrow keys",
-                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
@@ -1002,16 +999,6 @@
                     }
                 ]
             },
-            "devices": [
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 24926,
-                        "vendor_id": 7504
-                    },
-                    "ignore": true
-                }
-            ],
             "name": "Corne",
             "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
         }

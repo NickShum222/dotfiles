@@ -126,3 +126,6 @@ function chpwd() {
     source ./venv/bin/activate
   fi
 }
+
+# Created by `pipx` on 2025-12-18 02:46:13
+export PATH="$PATH:/Users/nickshum/.local/bin"

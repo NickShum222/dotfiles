@@ -11,6 +11,7 @@
                 "rules": [
                     {
                         "description": "Hold Control + HJKL for Arrow keys",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
@@ -92,6 +93,7 @@
                     },
                     {
                         "description": "Disable Backspace",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
@@ -105,6 +107,7 @@
                     },
                     {
                         "description": "Disable {}",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
@@ -148,6 +151,7 @@
                     },
                     {
                         "description": "Left Control + hjkl as arrow",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
@@ -201,6 +205,7 @@
                     },
                     {
                         "description": "Left Control + uiop → - _ = +",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
@@ -264,6 +269,7 @@
                     },
                     {
                         "description": "Disable number row (blocks 1–0 and !@#$%^&*())",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
@@ -349,6 +355,7 @@
                     },
                     {
                         "description": "Left Control Mapping",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
@@ -379,6 +386,7 @@
                     },
                     {
                         "description": "Right Option Mapping",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
@@ -408,6 +416,7 @@
                     },
                     {
                         "description": "Right Option + V,B,N,M → { } [ ]",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
@@ -471,6 +480,7 @@
                     },
                     {
                         "description": "Hold Right Command (num_layer) + ASDFGHJKL; & QWERTYUIOP → Numbers 1–0 & Symbols",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
@@ -766,6 +776,7 @@
                     },
                     {
                         "description": "Disable Enter key and map right_command to Enter",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
@@ -787,6 +798,7 @@
                     },
                     {
                         "description": "Disable Escape button",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
@@ -800,6 +812,7 @@
                     },
                     {
                         "description": "Caps Lock → Left Control",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
@@ -814,6 +827,7 @@
                     },
                     {
                         "description": "Hold Right Shift + HJKL for Scroll",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [

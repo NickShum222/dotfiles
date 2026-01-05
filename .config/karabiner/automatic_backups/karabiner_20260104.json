@@ -126,7 +126,6 @@
                     },
                     {
                         "description": "Disable -_=+",
-                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
