@@ -120,12 +120,13 @@ alias ssh-358='ssh -p 2222 n4shum@ece-nebula16.eng.uwaterloo.ca'
 
 
 # Auto enable venv
-
-function chpwd() {
-  if [[ -d "./venv" && -f "./venv/bin/activate" ]]; then
-    source ./venv/bin/activate
-  fi
-}
+# function chpwd() {
+#   if [[ -d "./venv" && -f "./venv/bin/activate" ]]; then
+#     source ./venv/bin/activate
+#   fi
+# }
 
 # Created by `pipx` on 2025-12-18 02:46:13
 export PATH="$PATH:/Users/nickshum/.local/bin"
+
+export MANPAGER="nvim +Man!"
