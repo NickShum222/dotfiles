@@ -1,3 +1,4 @@
+-- DOCUMENTATION HOTKEY
 return {
 	"danymat/neogen",
 	dependencies = {

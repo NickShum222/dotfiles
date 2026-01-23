@@ -17,7 +17,7 @@ return {
 			},
 
 			grep = {
-				rg_opts = "--column --line-number --no-heading --color=always --smart-case",
+				rg_opts = "--column --line-number --no-heading --color=always --smart-case --fixed-strings",
 			},
 
 			keymap = {
@@ -45,7 +45,5 @@ return {
 		keymap.set("n", "<leader>fc", function()
 			fzf.grep_cword()
 		end, { desc = "FZF: grep word under cursor" })
-
-		keymap.set("n", "<leader>ft", "<cmd>TodoFzfLua<cr>", { desc = "FZF: find TODOs" })
 	end,
 }

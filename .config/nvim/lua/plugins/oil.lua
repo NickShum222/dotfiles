@@ -4,8 +4,7 @@ return {
 	---@module 'oil'
 	---@type oil.SetupOpts
 	opts = {},
-	-- Optional dependencies
-	dependencies = { "nvim-tree/nvim-web-devicons", "benomahony/oil-git.nvim" }, -- use if you prefer nvim-web-devicons
+	dependencies = {},
 	lazy = false,
 	vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory in Oil" }),
 	-- vim.keymap.set("n", "<leader>.", "<CMD>OilToggleHidden<CR>", { desc = "Toggle hidden files" }),
