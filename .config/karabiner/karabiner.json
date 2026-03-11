@@ -83,19 +83,6 @@
             ]
           },
           {
-            "description": "Disable Backspace",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "delete_or_backspace",
-                  "modifiers": { "optional": ["any"] }
-                },
-                "to": [],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "Disable {}",
             "manipulators": [
               {
@@ -109,28 +96,6 @@
               {
                 "from": {
                   "key_code": "close_bracket",
-                  "modifiers": { "optional": ["any"] }
-                },
-                "to": [],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Disable -_=+",
-            "enabled": false,
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "hyphen",
-                  "modifiers": { "optional": ["any"] }
-                },
-                "to": [],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "equal_sign",
                   "modifiers": { "optional": ["any"] }
                 },
                 "to": [],
@@ -672,16 +637,8 @@
             ]
           },
           {
-            "description": "Disable Enter key and map right_command to Enter",
+            "description": "Map right_command to Enter",
             "manipulators": [
-              {
-                "from": {
-                  "key_code": "return_or_enter",
-                  "modifiers": { "optional": ["any"] }
-                },
-                "to": [],
-                "type": "basic"
-              },
               {
                 "from": {
                   "key_code": "right_command",
@@ -907,4 +864,3 @@
     }
   ]
 }
-
