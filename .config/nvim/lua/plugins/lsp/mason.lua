@@ -35,7 +35,6 @@ return {
 							"sass",
 							"scss",
 							"less",
-							"svelte",
 						},
 					})
 				end,
