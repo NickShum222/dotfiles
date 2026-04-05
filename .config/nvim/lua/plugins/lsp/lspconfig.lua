@@ -16,7 +16,7 @@ return {
 				vim.keymap.set("n", "gR", function()
 					fzf.lsp_references()
 				end, opts)
-				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+				vim.keymap.set("n", "gD", fzf.lsp_declarations(), opts)
 				vim.keymap.set("n", "gd", function()
 					fzf.lsp_definitions()
 				end, opts)

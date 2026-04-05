@@ -28,6 +28,7 @@ vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally"
 vim.o.relativenumber = true
 vim.o.number = true
 vim.o.cursorline = true
+vim.o.ruler = false
 
 vim.o.tabstop = 2 -- 2 spaces for tabs (prettier default)
 vim.o.shiftwidth = 2 -- 2 spaces for indent width
@@ -55,6 +56,134 @@ require("lazy").setup({
 		config = function()
 			require("oil").setup({
 				view_options = { show_hidden = true },
+			})
+		end,
+	},
+	{
+		"srcery-colors/srcery-vim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.g.srcery_italic = 1
+			vim.g.srcery_bold = 1
+			vim.g.srcery_inverse = 0
+			vim.g.srcery_undercurl = 0
+			vim.cmd.colorscheme("srcery")
+
+			vim.cmd([[
+			highlight Normal guibg=#000000 ctermbg=0
+			highlight NormalNC guibg=#000000 ctermbg=0
+			highlight SignColumn guibg=#000000 ctermbg=0
+			highlight LineNr guibg=#000000 ctermbg=0
+			highlight FoldColumn guibg=#000000 ctermbg=0
+			highlight VertSplit guibg=#000000 ctermbg=0
+			highlight StatusLine guibg=#000000 ctermbg=0
+			highlight EndOfBuffer guibg=#000000 ctermbg=0
+		]])
+		end,
+	},
+	{
+		"nvim-lua/plenary.nvim",
+		"christoomey/vim-tmux-navigator",
+	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("lualine").setup()
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"saghen/blink.cmp",
+			"ibhagwan/fzf-lua",
+		},
+		config = function()
+			require("mason").setup()
+			require("mason-lspconfig").setup({
+				handlers = {
+					function(server_name)
+						require("lspconfig")[server_name].setup({
+							capabilities = require("blink.cmp").get_lsp_capabilities(),
+						})
+					end,
+				},
+			})
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
+
+				callback = function(ev)
+					local opts = { buffer = ev.buf, silent = true }
+					local fzf = require("fzf-lua")
+
+					vim.keymap.set("n", "gd", fzf.lsp_definitions, opts)
+					vim.keymap.set("n", "gr", fzf.lsp_references, opts)
+					vim.keymap.set("n", "gi", fzf.lsp_implementations, opts)
+					vim.keymap.set("n", "gt", fzf.lsp_typedefs, opts)
+					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+
+					vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+
+					vim.keymap.set("n", "<leader>D", fzf.diagnostics_document, opts)
+					vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+
+					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+
+					vim.keymap.set("n", "<leader>ds", fzf.lsp_document_symbols, opts)
+					vim.keymap.set("n", "<leader>ws", fzf.lsp_workspace_symbols, opts)
+				end,
+			})
+		end,
+	},
+	{
+		"saghen/blink.cmp",
+		version = "1.*",
+		opts = {
+			keymap = {
+				preset = "super-tab",
+			},
+		},
+	},
+	{
+		"stevearc/conform.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			local conform = require("conform")
+			conform.setup({
+				formatters = {
+					["google-java-format"] = {
+						command = "java",
+						args = { "-jar", vim.fn.expand("~/.local/bin/google-java-format.jar"), "-" },
+						stdin = true,
+					},
+				},
+				formatters_by_ft = {
+					cpp = { "clang-format" },
+					c = { "clang-format" },
+					javascript = { "prettier" },
+					typescript = { "prettier" },
+					javascriptreact = { "prettier" },
+					typescriptreact = { "prettier" },
+					css = { "prettier" },
+					html = { "prettier" },
+					json = { "prettier" },
+					markdown = { "prettier" },
+					lua = { "stylua" },
+					python = { "black" },
+					java = { "google-java-format" },
+				},
+				format_on_save = {
+					lsp_fallback = true,
+					timeout_ms = 500,
+				},
 			})
 		end,
 	},
