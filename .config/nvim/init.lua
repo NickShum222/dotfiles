@@ -24,6 +24,10 @@ vim.g.maplocalleader = "\\"
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
+vim.keymap.set("v", "p", '"_dp')
+vim.keymap.set("v", "P", '"_dP')
 
 vim.o.relativenumber = true
 vim.o.number = true
