@@ -28,7 +28,6 @@ vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally"
 vim.o.relativenumber = true
 vim.o.number = true
 vim.o.cursorline = true
-vim.o.ruler = false
 
 vim.o.tabstop = 2 -- 2 spaces for tabs (prettier default)
 vim.o.shiftwidth = 2 -- 2 spaces for indent width
@@ -90,12 +89,6 @@ require("lazy").setup({
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
-	},
-	{
-		"nvim-lualine/lualine.nvim",
-		config = function()
-			require("lualine").setup()
-		end,
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -168,16 +161,11 @@ require("lazy").setup({
 				formatters_by_ft = {
 					cpp = { "clang-format" },
 					c = { "clang-format" },
+					python = { "black" },
 					javascript = { "prettier" },
 					typescript = { "prettier" },
 					javascriptreact = { "prettier" },
 					typescriptreact = { "prettier" },
-					css = { "prettier" },
-					html = { "prettier" },
-					json = { "prettier" },
-					markdown = { "prettier" },
-					lua = { "stylua" },
-					python = { "black" },
 					java = { "google-java-format" },
 				},
 				format_on_save = {
@@ -185,6 +173,48 @@ require("lazy").setup({
 					timeout_ms = 500,
 				},
 			})
+		end,
+	},
+	{
+		"arnamak/stay-centered.nvim",
+		lazy = false,
+		opts = {},
+	},
+	{
+		"ibhagwan/fzf-lua",
+		config = function()
+			local fzf = require("fzf-lua")
+			fzf.setup({
+				grep = {
+					rg_opts = "--column --line-number --no-heading --color=always --smart-case --fixed-strings",
+				},
+			})
+			vim.keymap.set("n", "<leader>ff", function()
+				fzf.files()
+			end, { desc = "FZF: find files" })
+
+			vim.keymap.set("n", "<leader>fs", function()
+				fzf.live_grep()
+			end, { desc = "FZF: live grep" })
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		event = { "BufReadPre", "BufNewFile" },
+		branch = "master",
+		lazy = false,
+		build = ":TSUpdate",
+		dependencies = {
+			"windwp/nvim-ts-autotag",
+		},
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = { "c", "cpp", "python", "javascript", "typescript", "tsx" },
+				highlight = { enable = true },
+				indent = { enable = true },
+			})
+			vim.treesitter.language.register("tsx", "typescriptreact")
+			require("nvim-ts-autotag").setup()
 		end,
 	},
 })
