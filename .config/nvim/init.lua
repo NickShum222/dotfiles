@@ -14,9 +14,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
@@ -53,9 +50,110 @@ vim.o.undodir = vim.fn.stdpath("state") .. "/undo"
 
 require("lazy").setup({
 	{
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"saghen/blink.cmp",
+			"ibhagwan/fzf-lua",
+		},
+		config = function()
+			require("mason").setup()
+			require("mason-lspconfig").setup({
+				handlers = {
+					function(server_name)
+						require("lspconfig")[server_name].setup({
+							capabilities = require("blink.cmp").get_lsp_capabilities(),
+						})
+					end,
+				},
+			})
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
+				callback = function(ev)
+					local opts = { buffer = ev.buf, silent = true }
+					local fzf = require("fzf-lua")
+					vim.keymap.set("n", "gd", fzf.lsp_definitions, opts)
+					vim.keymap.set("n", "gr", fzf.lsp_references, opts)
+					vim.keymap.set("n", "gi", fzf.lsp_implementations, opts)
+					vim.keymap.set("n", "gt", fzf.lsp_typedefs, opts)
+					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+
+					vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+
+					vim.keymap.set("n", "<leader>D", fzf.diagnostics_document, opts)
+					vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+
+					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+
+					vim.keymap.set("n", "<leader>ds", fzf.lsp_document_symbols, opts)
+					vim.keymap.set("n", "<leader>ws", fzf.lsp_workspace_symbols, opts)
+				end,
+			})
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		event = { "BufReadPre", "BufNewFile" },
+		branch = "main",
+		build = ":TSUpdate",
+		dependencies = {
+			"windwp/nvim-ts-autotag",
+		},
+		init = function()
+			local ensure_installed = {
+				"c",
+				"cpp",
+				"python",
+				"javascript",
+				"typescript",
+				"tsx",
+			}
+
+			local alreadyInstalled = require("nvim-treesitter.config").get_installed()
+			local parsersToInstall = vim.iter(ensure_installed)
+				:filter(function(parser)
+					return not vim.tbl_contains(alreadyInstalled, parser)
+				end)
+				:totable()
+
+			require("nvim-treesitter").install(parsersToInstall)
+
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function()
+					pcall(vim.treesitter.start)
+					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+				end,
+			})
+			vim.treesitter.language.register("tsx", "typescriptreact")
+			require("nvim-ts-autotag").setup()
+		end,
+	},
+	{
+		"ibhagwan/fzf-lua",
+		config = function()
+			local fzf = require("fzf-lua")
+			fzf.setup({
+				grep = {
+					rg_opts = "--column --line-number --no-heading --color=always --smart-case --fixed-strings",
+				},
+			})
+			vim.keymap.set("n", "<leader>ff", function()
+				fzf.files()
+			end, { desc = "FZF: find files" })
+
+			vim.keymap.set("n", "<leader>fs", function()
+				fzf.live_grep()
+			end, { desc = "FZF: live grep" })
+		end,
+	},
+	{
 		"stevearc/oil.nvim",
 		lazy = false,
-		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory in Oil" }),
+		keys = {
+			{ "-", "<CMD>Oil<CR>", desc = "Open parent directory in Oil" },
+		},
 		config = function()
 			require("oil").setup({
 				view_options = { show_hidden = true },
@@ -86,61 +184,6 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"nvim-lua/plenary.nvim",
-		"christoomey/vim-tmux-navigator",
-	},
-	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		config = true,
-	},
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
-			"saghen/blink.cmp",
-			"ibhagwan/fzf-lua",
-		},
-		config = function()
-			require("mason").setup()
-			require("mason-lspconfig").setup({
-				handlers = {
-					function(server_name)
-						require("lspconfig")[server_name].setup({
-							capabilities = require("blink.cmp").get_lsp_capabilities(),
-						})
-					end,
-				},
-			})
-			vim.api.nvim_create_autocmd("LspAttach", {
-				group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
-
-				callback = function(ev)
-					local opts = { buffer = ev.buf, silent = true }
-					local fzf = require("fzf-lua")
-
-					vim.keymap.set("n", "gd", fzf.lsp_definitions, opts)
-					vim.keymap.set("n", "gr", fzf.lsp_references, opts)
-					vim.keymap.set("n", "gi", fzf.lsp_implementations, opts)
-					vim.keymap.set("n", "gt", fzf.lsp_typedefs, opts)
-					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-
-					vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-
-					vim.keymap.set("n", "<leader>D", fzf.diagnostics_document, opts)
-					vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-
-					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-
-					vim.keymap.set("n", "<leader>ds", fzf.lsp_document_symbols, opts)
-					vim.keymap.set("n", "<leader>ws", fzf.lsp_workspace_symbols, opts)
-				end,
-			})
-		end,
-	},
-	{
 		"saghen/blink.cmp",
 		version = "1.*",
 		opts = {
@@ -166,13 +209,13 @@ require("lazy").setup({
 					cpp = { "clang-format" },
 					c = { "clang-format" },
 					python = { "black" },
-					javascript = { "prettier" },
-					typescript = { "prettier" },
-					javascriptreact = { "prettier" },
-					typescriptreact = { "prettier" },
+					javascript = { "prettierd" },
+					typescript = { "prettierd" },
+					javascriptreact = { "prettierd" },
+					typescriptreact = { "prettierd" },
 					java = { "google-java-format" },
 				},
-				format_on_save = {
+				format_after_save = {
 					lsp_fallback = true,
 					timeout_ms = 500,
 				},
@@ -185,58 +228,12 @@ require("lazy").setup({
 		opts = {},
 	},
 	{
-		"ibhagwan/fzf-lua",
-		config = function()
-			local fzf = require("fzf-lua")
-			fzf.setup({
-				grep = {
-					rg_opts = "--column --line-number --no-heading --color=always --smart-case --fixed-strings",
-				},
-			})
-			vim.keymap.set("n", "<leader>ff", function()
-				fzf.files()
-			end, { desc = "FZF: find files" })
-
-			vim.keymap.set("n", "<leader>fs", function()
-				fzf.live_grep()
-			end, { desc = "FZF: live grep" })
-		end,
+		"nvim-lua/plenary.nvim",
+		"christoomey/vim-tmux-navigator",
 	},
 	{
-		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPre", "BufNewFile" },
-		branch = "main",
-		lazy = false,
-		build = ":TSUpdate",
-		dependencies = {
-			"windwp/nvim-ts-autotag",
-		},
-		init = function()
-			local ensure_installed = {
-				"c",
-				"cpp",
-				"python",
-				"javascript",
-				"typescript",
-			}
-
-			local alreadyInstalled = require("nvim-treesitter.config").get_installed()
-			local parsersToInstall = vim.iter(ensure_installed)
-				:filter(function(parser)
-					return not vim.tbl_contains(alreadyInstalled, parser)
-				end)
-				:totable()
-
-			require("nvim-treesitter").install(parsersToInstall)
-
-			vim.api.nvim_create_autocmd("FileType", {
-				callback = function()
-					pcall(vim.treesitter.start)
-					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-				end,
-			})
-			vim.treesitter.language.register("tsx", "typescriptreact")
-			require("nvim-ts-autotag").setup()
-		end,
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
 	},
 })
