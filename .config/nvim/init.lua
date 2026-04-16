@@ -25,6 +25,8 @@ vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 vim.keymap.set("v", "p", '"_dp')
 vim.keymap.set("v", "P", '"_dP')
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<", "<gv")
 
 vim.o.relativenumber = true
 vim.o.number = true
@@ -214,6 +216,7 @@ require("lazy").setup({
 					javascriptreact = { "prettierd" },
 					typescriptreact = { "prettierd" },
 					java = { "google-java-format" },
+					tsx = { "prettierd" },
 				},
 				format_after_save = {
 					lsp_fallback = true,
