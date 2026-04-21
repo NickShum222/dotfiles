@@ -231,7 +231,6 @@ require("lazy").setup({
 		opts = {},
 	},
 	{
-		"nvim-lua/plenary.nvim",
 		"christoomey/vim-tmux-navigator",
 	},
 	{
