@@ -70,6 +70,12 @@ require("lazy").setup({
 					end,
 				},
 			})
+			vim.lsp.config("sourcekit", {
+				cmd = { "sourcekit-lsp" },
+				capabilities = require("blink.cmp").get_lsp_capabilities(),
+			})
+
+			vim.lsp.enable("sourcekit")
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
 				callback = function(ev)
@@ -137,6 +143,12 @@ require("lazy").setup({
 		config = function()
 			local fzf = require("fzf-lua")
 			fzf.setup({
+				winopts = {
+					width = 0.95,
+					preview = {
+						layout = "vertical",
+					},
+				},
 				grep = {
 					rg_opts = "--column --line-number --no-heading --color=always --smart-case --fixed-strings",
 				},
@@ -217,6 +229,7 @@ require("lazy").setup({
 					typescriptreact = { "prettierd" },
 					java = { "google-java-format" },
 					tsx = { "prettierd" },
+					swift = { "swift_format" },
 				},
 				format_after_save = {
 					lsp_fallback = true,

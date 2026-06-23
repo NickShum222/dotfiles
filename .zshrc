@@ -12,9 +12,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Git Shortcuts
 alias gaa='git add .'
+alias gc='git commit -m'
 alias gca='git commit -a -m'
 alias gp='git push '
 alias gsw='git switch'
+alias gst='git status'
 
 alias lg='lazygit'
 
