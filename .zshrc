@@ -50,6 +50,8 @@ alias ....="cd ../../.."
 alias reload="source ~/.zshrc"
 alias ls="ls -lh --color=auto"
 
+alias pwd="pwd | pbcopy"
+
 export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 export PATH=$JAVA_HOME/bin:$PATH
 export NVM_DIR="$HOME/.nvm"

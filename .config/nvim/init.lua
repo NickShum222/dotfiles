@@ -28,6 +28,16 @@ vim.keymap.set("v", "P", '"_dP')
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
 
+vim.keymap.set("n", "<leader>cp", function()
+	vim.fn.setreg("+", vim.fn.expand("%"))
+	print("Relative file path yanked")
+end, { desc = "Copy relative file path" })
+
+vim.keymap.set("n", "<leader>cP", function()
+	vim.fn.setreg("+", vim.fn.expand("%:p"))
+	print("Absolute file path yanked")
+end, { desc = "Copy absolute file path" })
+
 vim.o.relativenumber = true
 vim.o.number = true
 vim.o.cursorline = true
@@ -171,6 +181,12 @@ require("lazy").setup({
 		config = function()
 			require("oil").setup({
 				view_options = { show_hidden = true },
+				keymaps = {
+					["<C-h>"] = false,
+					["<C-j>"] = false,
+					["<C-k>"] = false,
+					["<C-l>"] = false,
+				},
 			})
 		end,
 	},
@@ -250,5 +266,19 @@ require("lazy").setup({
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
+	},
+	{
+		"kdheepak/lazygit.nvim",
+		lazy = true,
+		cmd = {
+			"LazyGit",
+			"LazyGitConfig",
+			"LazyGitCurrentFile",
+			"LazyGitFilter",
+			"LazyGitFilterCurrentFile",
+		},
+		keys = {
+			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+		},
 	},
 })
